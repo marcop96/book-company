@@ -1,15 +1,19 @@
-export default function BooksCover(props) {
-  function selectedBookHandler(book) {
-    console.log(props.info);
-    props.onClick(props.info);
+import { Book } from "../types";
+interface BooksCoverProps {
+  book: Book;
+  onClick: (book: Book) => void;
+}
+export default function BooksCover({ book, onClick }: BooksCoverProps) {
+  function selectedBookHandler(book: Book) {
+    onClick(book);
   }
   return (
     <>
       <div
         className="border-2 border-black "
-        onClick={() => selectedBookHandler(props.book)}
+        onClick={() => selectedBookHandler(book)}
       >
-        <img className="w-full h-full" src={props.cover} alt={props.title} />
+        <img className="w-full h-full" src={book.cover} alt={book.title} />
       </div>
     </>
   );

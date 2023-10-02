@@ -47,15 +47,13 @@ function App() {
         <header className="">
           <NavBar />
         </header>
-        <main className="flex ">
+        <main className="flex flex-col-reverse sm:flex-row ">
           <section className="grid grid-cols-2 w-1/2  gap-4  ml-2 mt-3  sm:grid-cols-3 lg:grid-cols-4">
             {bookList.map((book) => {
               return (
                 <BookCovers
-                  cover={book.cover}
-                  alt={book.title}
                   key={book.ISBN}
-                  info={book}
+                  book={book}
                   onClick={selectedBookHandler}
                 />
               );

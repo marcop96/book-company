@@ -4,8 +4,6 @@ type Props = {
 };
 
 export default function BookDescription({ book }: Props) {
-  console.log(book?.author.otherBooks);
-
   return book == undefined ? (
     "Select a book"
   ) : (
