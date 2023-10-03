@@ -45,13 +45,11 @@ function App() {
   };
 
   const favoritesHandler = (book: Book) => {
-    if (favorites.some((favorite: any) => favorite.title === book.title)) {
+    if (favorites.some((favorite: Book) => favorite.title === book.title)) {
       setFavorites((favorites) =>
         favorites.filter((f) => f.title !== book.title)
       );
-      console.log("entra en if");
     } else {
-      console.log("no entra en if");
       setFavorites((favorites) => [...favorites, book]);
     }
   };
@@ -60,7 +58,7 @@ function App() {
     <>
       <div className="min-w-screen h-screen">
         <header className="">
-          <NavBar />
+          <NavBar favorites={favorites} />
         </header>
         <main className="flex flex-col-reverse sm:flex-row ">
           <pre>{favorites.length}</pre>
@@ -68,6 +66,7 @@ function App() {
             {bookList.map((book) => {
               return (
                 <BookCovers
+                  className="hover:animate-pulse"
                   key={book.ISBN}
                   book={book}
                   onClick={selectedBookHandler}

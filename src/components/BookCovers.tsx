@@ -1,10 +1,5 @@
-import { Book } from "../types";
-interface BooksCoverProps {
-  book: Book;
-  onClick: (book: Book) => void;
-  favoritesHandler: (book: Book) => void;
-  favorites: Book[];
-}
+import { Book, BooksCoverProps } from "../types";
+
 export default function BooksCover({
   book,
   onClick,
@@ -21,7 +16,7 @@ export default function BooksCover({
 
   return (
     <>
-      <div className="mb-2">
+      <div className="mb-2 hover:animate-pulse cursor-pointer">
         <img
           className="w-full h-full"
           src={book.cover}

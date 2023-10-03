@@ -13,3 +13,10 @@ export interface Author {
   name: string;
   otherBooks: string[];
 }
+
+export interface BooksCoverProps {
+  book: Book;
+  onClick: (book: Book) => void;
+  favoritesHandler: (book: Book) => void;
+  favorites: Book[];
+}
