@@ -2,20 +2,23 @@ import { Book } from "../types";
 interface BooksCoverProps {
   book: Book;
   onClick: (book: Book) => void;
-  addToFavorites: (book: Book) => void;
+  favoritesHandler: (book: Book) => void;
+  favorites: Book[];
 }
 export default function BooksCover({
   book,
   onClick,
-  addToFavorites,
+  favoritesHandler,
+  favorites,
 }: BooksCoverProps) {
   function selectedBookHandler(book: Book) {
     onClick(book);
   }
 
-  function addToFavoritesHandler(book: Book) {
-    addToFavorites(book);
+  function checkFavorites(book: Book) {
+    favoritesHandler(book);
   }
+
   return (
     <>
       <div className="mb-2">
@@ -25,9 +28,17 @@ export default function BooksCover({
           alt={book.title}
           onClick={() => selectedBookHandler(book)}
         />
-        <p className="text-center " onClick={() => addToFavoritesHandler(book)}>
-          add to favorites
-        </p>
+
+        {!favorites.some((favorite) => favorite.ISBN === book.ISBN) ? (
+          <p className="text-center " onClick={() => checkFavorites(book)}>
+            add
+          </p>
+        ) : (
+          <p className="text-center" onClick={() => checkFavorites(book)}>
+            {" "}
+            remove
+          </p>
+        )}
       </div>
     </>
   );

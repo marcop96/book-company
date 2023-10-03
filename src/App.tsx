@@ -35,18 +35,25 @@ function App() {
     };
   });
 
+  //states
   const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
   const [favorites, setFavorites] = useState<Book[]>([]);
+
+  //handlers
   const selectedBookHandler = (book: Book) => {
     setSelectedBook(book);
   };
 
-  const addToFavoritesHandler = (book: Book) => {
-    if (favorites.some((favorite) => favorite.ISBN === book.ISBN)) {
-      return;
+  const favoritesHandler = (book: Book) => {
+    if (favorites.some((favorite: any) => favorite.title === book.title)) {
+      setFavorites((favorites) =>
+        favorites.filter((f) => f.title !== book.title)
+      );
+      console.log("entra en if");
+    } else {
+      console.log("no entra en if");
+      setFavorites((favorites) => [...favorites, book]);
     }
-
-    setFavorites((favorites) => [...favorites, book]);
   };
 
   return (
@@ -56,7 +63,7 @@ function App() {
           <NavBar />
         </header>
         <main className="flex flex-col-reverse sm:flex-row ">
-          {favorites.length}
+          <pre>{favorites.length}</pre>
           <section className="grid grid-cols-2 w-1/2  gap-4  my-4  sm:grid-cols-3 lg:grid-cols-4">
             {bookList.map((book) => {
               return (
@@ -64,7 +71,8 @@ function App() {
                   key={book.ISBN}
                   book={book}
                   onClick={selectedBookHandler}
-                  addToFavorites={addToFavoritesHandler}
+                  favoritesHandler={favoritesHandler}
+                  favorites={favorites}
                 />
               );
             })}
