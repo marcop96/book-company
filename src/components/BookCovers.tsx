@@ -1,6 +1,6 @@
 import { Book, BooksCoverProps } from "../types";
 
-export default function BooksCover({
+export default function BookCovers({
   book,
   onClick,
   favoritesHandler,
@@ -16,9 +16,9 @@ export default function BooksCover({
 
   return (
     <>
-      <div className="mb-2 hover:animate-pulse cursor-pointer">
+      <div className="mb-2  cursor-pointer items-center">
         <img
-          className="w-full h-full"
+          className="w-full h-full hover:animate-pulse"
           src={book.cover}
           alt={book.title}
           onClick={() => selectedBookHandler(book)}

@@ -8,7 +8,7 @@ export default function BookDescription({ book }: Props) {
     "Select a book"
   ) : (
     <div className="flex flex-col items-start">
-      <h1 className="text-2xl self-center">{book.title}</h1>
+      <h1 className="text-2xl self-center font-bold underline">{book.title}</h1>
       <span>
         <p>Year: {book.year}</p>
         <p>Author: {book.author.name}</p>

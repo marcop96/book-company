@@ -38,7 +38,7 @@ function App() {
   //states
   const [selectedBook, setSelectedBook] = useState<Book | undefined>(undefined);
   const [favorites, setFavorites] = useState<Book[]>([]);
-
+  const [activePage, setActivePage] = useState("home");
   //handlers
   const selectedBookHandler = (book: Book) => {
     setSelectedBook(book);
@@ -53,34 +53,36 @@ function App() {
       setFavorites((favorites) => [...favorites, book]);
     }
   };
-
+  const activePageHandler = (page: string) => {
+    setActivePage(page);
+  };
   return (
     <>
-      <div className="min-w-screen h-screen">
-        <header className="">
-          <NavBar favorites={favorites} />
-        </header>
-        <main className="flex flex-col-reverse sm:flex-row ">
-          <pre>{favorites.length}</pre>
-          <section className="grid grid-cols-2 w-1/2  gap-4  my-4  sm:grid-cols-3 lg:grid-cols-4">
-            {bookList.map((book) => {
-              return (
-                <BookCovers
-                  className="hover:animate-pulse"
-                  key={book.ISBN}
-                  book={book}
-                  onClick={selectedBookHandler}
-                  favoritesHandler={favoritesHandler}
-                  favorites={favorites}
-                />
-              );
-            })}
-          </section>
-          <section className="ml-3 w-1/2">
-            <BookDescription book={selectedBook} />
-          </section>
-        </main>
-      </div>
+      {activePage === "home" && (
+        <div className="min-w-screen h-screen">
+          <header className="">
+            <NavBar favorites={favorites} onClick={activePageHandler} />
+          </header>
+          <main className="flex flex-col-reverse sm:flex-row ">
+            <section className="grid grid-cols-2 w-1/2  gap-4  my-4  sm:grid-cols-3 lg:grid-cols-4 ">
+              {bookList.map((book) => {
+                return (
+                  <BookCovers
+                    key={book.ISBN}
+                    book={book}
+                    onClick={selectedBookHandler}
+                    favoritesHandler={favoritesHandler}
+                    favorites={favorites}
+                  />
+                );
+              })}
+            </section>
+            <section className="ml-3 w-1/2">
+              <BookDescription book={selectedBook} />
+            </section>
+          </main>
+        </div>
+      )}
     </>
   );
 }
