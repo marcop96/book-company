@@ -1,5 +1,5 @@
 // import BookCovers from "./BookCovers";
-import { Book, BooksCoverProps } from "../types";
+import { BooksCoverProps } from "../types";
 export default function FavoriteList({
   favorites,
 }: {
