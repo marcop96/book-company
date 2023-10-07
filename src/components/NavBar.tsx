@@ -4,7 +4,7 @@ function NavBar({
   onClick,
 }: {
   favorites: Book[];
-  activePage: string;
+  activePage?: string;
   onClick: (page: string) => void;
 }) {
   function activePageChanger() {
