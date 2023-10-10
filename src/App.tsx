@@ -8,7 +8,7 @@ import { Book } from "./types";
 import books from "../src/data/bookdata.json";
 
 function App() {
-  const bookList = books.library.map((item) => {
+  const bookList: Book[] = books.library.map((item) => {
     const {
       title,
       pages,
@@ -66,7 +66,7 @@ function App() {
 
           <main className="flex flex-col-reverse sm:flex-row ">
             <section className="grid grid-cols-2 w-1/2  gap-4  my-4  sm:grid-cols-3 lg:grid-cols-4 ">
-              {bookList.map((book) => {
+              {bookList.map((book: Book) => {
                 return (
                   <BookCovers
                     key={book.ISBN}
