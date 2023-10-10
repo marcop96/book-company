@@ -63,6 +63,7 @@ function App() {
           <header className="">
             <NavBar favorites={favorites} onClick={activePageHandler} />
           </header>
+
           <main className="flex flex-col-reverse sm:flex-row ">
             <section className="grid grid-cols-2 w-1/2  gap-4  my-4  sm:grid-cols-3 lg:grid-cols-4 ">
               {bookList.map((book) => {
