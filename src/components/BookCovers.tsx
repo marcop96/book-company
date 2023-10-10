@@ -30,7 +30,6 @@ export default function BookCovers({
           </p>
         ) : (
           <p className="text-center" onClick={() => checkFavorites(book)}>
-            {" "}
             remove
           </p>
         )}
