@@ -8,7 +8,6 @@ function NavBar({
   onClick: (page: string) => void;
 }) {
   function activePageChanger(e: React.MouseEvent<HTMLElement>) {
-    console.log(e.currentTarget.id);
     onClick(e.currentTarget.id);
   }
   return (

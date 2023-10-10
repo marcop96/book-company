@@ -74,7 +74,6 @@ const BookRenderer: React.FC<BookRendererProps> = ({
 
       {activePage === "favorites" && (
         <>
-          <h1>Favorites</h1>
           {favorites.map((book: Book) => (
             <BookCovers
               key={book.ISBN}
