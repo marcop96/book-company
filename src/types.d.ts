@@ -20,3 +20,8 @@ export interface BooksCoverProps {
   favoritesHandler: (book: Book) => void;
   favorites: Book[];
 }
+
+declare module "*.json" {
+  const value: Book[];
+  export default value;
+}
