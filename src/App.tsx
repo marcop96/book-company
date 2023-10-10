@@ -8,7 +8,7 @@ import { Book } from "./types";
 import books from "../src/data/bookdata.json";
 
 function App() {
-  const bookList: Book[] = books.library.map((item) => {
+  const bookList: Book[] = books.library.map((item: { book: Book }) => {
     const {
       title,
       pages,
