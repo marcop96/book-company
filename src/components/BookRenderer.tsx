@@ -1,6 +1,7 @@
 import React from "react";
 import BookCovers from "./BookCovers";
 import books from "../data/Bookdata.json";
+
 import { Book } from "../types";
 
 interface BookRendererProps {
