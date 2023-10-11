@@ -21,7 +21,7 @@ export interface BooksCoverProps {
   favorites: Book[];
 }
 
-declare module "../data/Bookdata.json" {
+declare module "*.json" {
   const value: Book[];
   export default value;
 }

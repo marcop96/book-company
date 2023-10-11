@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2020",
+    "typeRoots": [
+      "./types"
+    ],
     "useDefineForClassFields": true,
     "lib": [
       "ES2020",
